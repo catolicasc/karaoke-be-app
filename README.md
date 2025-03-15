@@ -6,10 +6,10 @@
 ---
 ## 🚀 Recursos
 
-[x] Cadastro de participantes com **restrição de tempo entre candidaturas**  
-[x] Registro de **pontuação automática** ao cantar ou desistir  
-[x] Listagem dos **participantes do dia**  
-[x] Atualização de status dos participantes  
+- [x] Cadastro de participantes com **restrição de tempo entre candidaturas**  
+- [x] Registro de **pontuação automática** ao cantar ou desistir  
+- [x] Listagem dos **participantes do dia**  
+- [x] Atualização de status dos participantes  
 ---
 
 ## 📌 Configuração do Projeto
