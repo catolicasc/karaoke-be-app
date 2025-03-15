@@ -1,27 +1,35 @@
-import { Controller, Post, Get, Patch, Body, Param } from '@nestjs/common';
+import { Controller, Post, Get, Body, Param, Patch } from '@nestjs/common';
 import { ParticipantService } from './participant.service';
+import { MusicStatus } from './enums/music-status.enum';
 
 @Controller('participants')
 export class ParticipantController {
-  constructor(private readonly participantService: ParticipantService) {}
+    constructor(private readonly participantService: ParticipantService) { }
 
-  @Post()
-  register(@Body() body: { phone: string; name: string; song: string; band: string }) {
-    return this.participantService.register(body.phone, body.name, body.song, body.band);
-  }
+    @Get()
+    listAll() {
+        return this.participantService.listAll();
+    }
 
-  @Patch(':phone/status')
-  updateStatus(@Param('phone') phone: string, @Body() body: { status: 'queue' | 'sang' | 'skipped' }) {
-    return this.participantService.updateStatus(phone, body.status);
-  }
+    @Post(':phone/music')
+    async addMusic(
+        @Param('phone') phone: string,
+        @Body() body: { name: string; song: string; band: string }
+    ) {
+        return this.participantService.addMusic(phone, body.name, body.song, body.band);
+    }
 
-  @Get()
-  listAll() {
-    return this.participantService.listAll();
-  }
+    @Patch(':phone/music/:songId/status')
+    async updateMusicStatus(
+        @Param('phone') phone: string,
+        @Param('songId') songId: string,
+        @Body() body: { status: MusicStatus }
+    ) {
+        return this.participantService.updateMusicStatus(phone, songId, body.status);
+    }
 
-  @Get('today')
-  listToday() {
-    return this.participantService.listToday();
-  }
+    @Get('today')
+    listToday() {
+        return this.participantService.listToday();
+    }
 }

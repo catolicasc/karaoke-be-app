@@ -1,4 +1,5 @@
 # 🎤 Sistema de Karaokê - API NestJS
+## Feature-Based Modular Architecture in NestJS
 
 📌 API desenvolvida em **NestJS** para gerenciar participantes em um **Sistema de Karaokê**, permitindo que os usuários se cadastrem, escolham músicas e acumulem pontos.
 
@@ -90,3 +91,21 @@ npm run test:cov
 
 ## 📌 Licença
 Este projeto é **open-source** e licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+## Estrutura do Projeto
+
+```
+src/
+├── participants/
+│   ├── enums/                        Define constantes e tipos (ex: MusicStatus)
+│   │   ├── music-status.enum.ts
+│   ├── participant.controller.ts     Controla requisições HTTP
+│   ├── participant.module.ts         Define o módulo do participante
+│   ├── participant.repository.ts     Acesso ao banco de dados (MongoDB)
+│   ├── participant.schema.ts         Modelo do MongoDB
+│   ├── participant.service.ts        Regras de negócio (pontuação, restrições)
+├── app.module.ts
+├── main.ts
+```
