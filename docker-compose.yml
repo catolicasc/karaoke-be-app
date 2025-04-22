@@ -8,8 +8,8 @@ services:
     ports:
       - "27017:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: mongo
-      MONGO_INITDB_ROOT_PASSWORD: mongo
+      MONGO_INITDB_ROOT_USERNAME: ${USER_DB}
+      MONGO_INITDB_ROOT_PASSWORD: ${PASS_DB}
     volumes:
       - mongo_data:/data/db
   backend:
@@ -21,7 +21,10 @@ services:
     depends_on:
       - mongo
     environment:
-      - MONGODB_URI=mongodb://139.144.31.212:mongo@mongo:27017/karaoke
-      - PORT=3000
+      - MONGODB_URI= ${MONGODB_URI}
+      - PORT= ${PORT
+      - USER_DB= ${USER_DB}
+      - PASS_DB= ${PASS_DB}
+      - AUTH_SOURCE_DB= ${AUTH_SOURCE_DB}
 volumes:
   mongo_data:
