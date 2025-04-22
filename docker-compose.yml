@@ -22,7 +22,7 @@ services:
       - mongo
     environment:
       - MONGODB_URI= ${MONGODB_URI}
-      - PORT= ${PORT
+      - PORT= ${PORT}
       - USER_DB= ${USER_DB}
       - PASS_DB= ${PASS_DB}
       - AUTH_SOURCE_DB= ${AUTH_SOURCE_DB}
